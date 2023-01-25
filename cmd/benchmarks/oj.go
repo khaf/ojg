@@ -10,8 +10,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/oj"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/oj"
 )
 
 func ojParse(b *testing.B) {

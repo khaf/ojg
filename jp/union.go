@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Union is a union operation for a JSON path expression which is a union of a

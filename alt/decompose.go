@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/ohler55/ojg"
+	"github.com/khaf/ojg"
 )
 
 // 23 for fraction in IEEE 754 which amounts to 7 significant digits. Use base

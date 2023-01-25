@@ -5,7 +5,7 @@ package jp
 import (
 	"reflect"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Child is a child operation for a JSON path expression.

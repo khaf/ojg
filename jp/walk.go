@@ -5,7 +5,7 @@ package jp
 import (
 	"time"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Walk data and call the cb callback for each node in the data. The path is

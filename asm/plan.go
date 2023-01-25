@@ -2,7 +2,7 @@
 
 package asm
 
-import "github.com/ohler55/ojg"
+import "github.com/khaf/ojg"
 
 // Plan is an assembly plan that can be described by a JSON document or a SEN
 // document. The format is much like LISP but with brackets instead of

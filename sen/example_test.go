@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/pretty"
-	"github.com/ohler55/ojg/sen"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/pretty"
+	"github.com/khaf/ojg/sen"
 )
 
 func ExampleParse() {

@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/oj"
-	"github.com/ohler55/ojg/sen"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/oj"
+	"github.com/khaf/ojg/sen"
 )
 
 func ExampleDecompose() {
@@ -24,7 +24,7 @@ func ExampleDecompose() {
 
 	fmt.Println(oj.JSON(simple, &oj.Options{Sort: true}))
 
-	// Output: {"^":"github.com/ohler55/ojg/alt_test/Sample","int":3,"str":"three"}
+	// Output: {"^":"github.com/khaf/ojg/alt_test/Sample","int":3,"str":"three"}
 }
 
 func ExampleDup() {

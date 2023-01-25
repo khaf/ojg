@@ -7,7 +7,7 @@ lint:
 	golangci-lint run
 
 cover: lint
-	go test -coverpkg github.com/ohler55/ojg -coverprofile=cov.out
+	go test -coverpkg github.com/khaf/ojg -coverprofile=cov.out
 	make -C oj
 	make -C sen
 	make -C pretty

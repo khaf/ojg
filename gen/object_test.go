@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestObjectString(t *testing.T) {

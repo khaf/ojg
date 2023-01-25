@@ -13,13 +13,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/asm"
-	"github.com/ohler55/ojg/jp"
-	"github.com/ohler55/ojg/oj"
-	"github.com/ohler55/ojg/pretty"
-	"github.com/ohler55/ojg/sen"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/asm"
+	"github.com/khaf/ojg/jp"
+	"github.com/khaf/ojg/oj"
+	"github.com/khaf/ojg/pretty"
+	"github.com/khaf/ojg/sen"
 )
 
 const version = "1.9.4"

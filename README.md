@@ -1,8 +1,8 @@
-# [![{}j](assets/ojg_comet.svg)](https://github.com/ohler55/ojg)
+# [![{}j](assets/ojg_comet.svg)](https://github.com/khaf/ojg)
 
-[![Build Status](https://github.com/ohler55/ojg/actions/workflows/CI.yml/badge.svg)](https://github.com/ohler55/ojg/actions)
+[![Build Status](https://github.com/khaf/ojg/actions/workflows/CI.yml/badge.svg)](https://github.com/khaf/ojg/actions)
 [![Coverage Status](https://coveralls.io/repos/github/ohler55/ojg/badge.svg?branch=master)](https://coveralls.io/github/ohler55/ojg?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/ohler55/ojg)](https://goreportcard.com/report/github.com/ohler55/ojg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/khaf/ojg)](https://goreportcard.com/report/github.com/khaf/ojg)
 
 Optimized JSON for Go is a high performance parser with a variety of
 additional JSON tools. OjG is optimized to processing huge data sets
@@ -57,8 +57,8 @@ allows interfaces to be marshalled and unmarshalled.
 
 ## Installation
 ```
-go get github.com/ohler55/ojg
-go get github.com/ohler55/ojg/cmd/oj
+go get github.com/khaf/ojg
+go get github.com/khaf/ojg/cmd/oj
 
 ```
 
@@ -66,12 +66,12 @@ or just import in your `.go` files.
 
 ```
 import (
-    "github.com/ohler55/ojg/alt"
-    "github.com/ohler55/ojg/asm"
-    "github.com/ohler55/ojg/gen"
-    "github.com/ohler55/ojg/jp"
-    "github.com/ohler55/ojg/oj"
-    "github.com/ohler55/ojg/sen"
+    "github.com/khaf/ojg/alt"
+    "github.com/khaf/ojg/asm"
+    "github.com/khaf/ojg/gen"
+    "github.com/khaf/ojg/jp"
+    "github.com/khaf/ojg/oj"
+    "github.com/khaf/ojg/sen"
 )
 ```
 
@@ -126,15 +126,15 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 ## Links
 
-- *Documentation*: [https://pkg.go.dev/github.com/ohler55/ojg](https://pkg.go.dev/github.com/ohler55/ojg)
+- *Documentation*: [https://pkg.go.dev/github.com/khaf/ojg](https://pkg.go.dev/github.com/khaf/ojg)
 
-- *GitHub* *repo*: https://github.com/ohler55/ojg
+- *GitHub* *repo*: https://github.com/khaf/ojg
 
 - *JSONPath* description: https://goessner.net/articles/JsonPath
 
 - *JSONPath Comparisons*: https://cburgmer.github.io/json-path-comparison
 
-- *Go Report Card*: https://goreportcard.com/report/github.com/ohler55/ojg
+- *Go Report Card*: https://goreportcard.com/report/github.com/khaf/ojg
 
 #### Links of Interest
 

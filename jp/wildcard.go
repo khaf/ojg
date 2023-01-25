@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Wildcard is used as a flag to indicate the path should be displayed in a

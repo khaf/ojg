@@ -5,9 +5,9 @@ package asm
 import (
 	"fmt"
 
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/jp"
-	"github.com/ohler55/ojg/sen"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/jp"
+	"github.com/khaf/ojg/sen"
 )
 
 var fnMap = map[string]Fn{}

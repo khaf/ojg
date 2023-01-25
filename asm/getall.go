@@ -5,7 +5,7 @@ package asm
 import (
 	"fmt"
 
-	"github.com/ohler55/ojg/jp"
+	"github.com/khaf/ojg/jp"
 )
 
 func init() {

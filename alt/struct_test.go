@@ -5,10 +5,10 @@ package alt_test
 import (
 	"testing"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestDecomposeTagPrimitive(t *testing.T) {

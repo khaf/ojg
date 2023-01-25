@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ohler55/ojg"
+	"github.com/khaf/ojg"
 )
 
 type remover interface {

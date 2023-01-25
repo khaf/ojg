@@ -5,7 +5,7 @@ package jp
 import (
 	"strconv"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 type index int

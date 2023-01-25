@@ -8,7 +8,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Genericer is the interface for the Generic() function that converts types

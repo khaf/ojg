@@ -1,3 +1,3 @@
-module github.com/ohler55/ojg
+module github.com/khaf/ojg
 
 go 1.19

@@ -5,10 +5,10 @@ package asm_test
 import (
 	"testing"
 
-	"github.com/ohler55/ojg/asm"
-	"github.com/ohler55/ojg/jp"
-	"github.com/ohler55/ojg/sen"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/asm"
+	"github.com/khaf/ojg/jp"
+	"github.com/khaf/ojg/sen"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestSet(t *testing.T) {

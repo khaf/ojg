@@ -8,8 +8,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/gen"
 )
 
 // MustModify modifies matching nodes and panics on an expression error.

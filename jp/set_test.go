@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/jp"
-	"github.com/ohler55/ojg/oj"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/jp"
+	"github.com/khaf/ojg/oj"
+	"github.com/khaf/ojg/tt"
 )
 
 type setData struct {

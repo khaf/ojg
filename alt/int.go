@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Int convert the value provided to an int64. If conversion is not possible

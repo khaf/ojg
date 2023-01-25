@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ohler55/ojg/alt"
+	"github.com/khaf/ojg/alt"
 )
 
 func ExampleBool() {

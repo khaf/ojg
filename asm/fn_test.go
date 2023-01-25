@@ -5,8 +5,8 @@ package asm_test
 import (
 	"testing"
 
-	"github.com/ohler55/ojg/asm"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/asm"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestDefine(t *testing.T) {

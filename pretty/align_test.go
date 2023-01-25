@@ -5,8 +5,8 @@ package pretty_test
 import (
 	"testing"
 
-	"github.com/ohler55/ojg/pretty"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/pretty"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestWriteAlignArrayNumbers(t *testing.T) {

@@ -5,7 +5,7 @@ package alt
 import (
 	"time"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Time convert the value provided to a time.Time. If conversion is not

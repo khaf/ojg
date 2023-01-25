@@ -5,7 +5,7 @@ package alt
 import (
 	"strings"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Bool convert the value provided to a bool. If conversion is not possible

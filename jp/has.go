@@ -5,7 +5,7 @@ package jp
 import (
 	"reflect"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Has returns true if there is a value ot the end of the path specified. A

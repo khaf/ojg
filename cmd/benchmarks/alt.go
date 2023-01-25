@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ohler55/ojg/alt"
+	"github.com/khaf/ojg/alt"
 )
 
 func altGenerify(b *testing.B) {

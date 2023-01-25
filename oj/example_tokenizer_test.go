@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/ohler55/ojg/oj"
+	"github.com/khaf/ojg/oj"
 )
 
 type Toker struct {

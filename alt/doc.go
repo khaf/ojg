@@ -50,7 +50,7 @@ Alter() a deep copy is returned leaving the original data unchanged.
 	}
 	sample := Sample{Int: 3, Str: "three"}
 	simple := alt.Decompose(&sample, &alt.Options{CreateKey: "^", FullTypePath: true})
-	// simple: {"^":"github.com/ohler55/ojg/alt_test/Sample","int":3,"str":"three"}
+	// simple: {"^":"github.com/khaf/ojg/alt_test/Sample","int":3,"str":"three"}
 
 # Recompose
 

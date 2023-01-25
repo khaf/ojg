@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
 )
 
 func (wr *Writer) colorSEN(data any, depth int) {

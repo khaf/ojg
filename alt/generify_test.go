@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestGenerifyBase(t *testing.T) {
@@ -68,10 +68,10 @@ func TestGenerifyStruct(t *testing.T) {
 	}, v)
 	v = alt.Generify(&d, &alt.Options{CreateKey: "^", FullTypePath: true, OmitNil: true})
 	tt.Equal(t, gen.Object{
-		"^":   gen.String("github.com/ohler55/ojg/alt_test/Dummy"),
+		"^":   gen.String("github.com/khaf/ojg/alt_test/Dummy"),
 		"val": gen.Int(3),
 		"nest": gen.Object{
-			"^":   gen.String("github.com/ohler55/ojg/alt_test/Dummy"),
+			"^":   gen.String("github.com/khaf/ojg/alt_test/Dummy"),
 			"val": gen.Int(2),
 		},
 	}, v)
@@ -184,10 +184,10 @@ func TestGenAlterStruct(t *testing.T) {
 
 	v = alt.GenAlter(&d, &alt.Options{CreateKey: "^", FullTypePath: true, OmitNil: true})
 	tt.Equal(t, gen.Object{
-		"^":   gen.String("github.com/ohler55/ojg/alt_test/Dummy"),
+		"^":   gen.String("github.com/khaf/ojg/alt_test/Dummy"),
 		"val": gen.Int(3),
 		"nest": gen.Object{
-			"^":   gen.String("github.com/ohler55/ojg/alt_test/Dummy"),
+			"^":   gen.String("github.com/khaf/ojg/alt_test/Dummy"),
 			"val": gen.Int(2),
 		},
 	}, v)

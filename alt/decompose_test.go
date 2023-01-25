@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/tt"
 )
 
 type Dummy struct {
@@ -62,10 +62,10 @@ func TestDecomposeStruct(t *testing.T) {
 
 	v = alt.Decompose(&d, &alt.Options{CreateKey: "^", FullTypePath: true, OmitNil: true})
 	tt.Equal(t, map[string]any{
-		"^":   "github.com/ohler55/ojg/alt_test/Dummy",
+		"^":   "github.com/khaf/ojg/alt_test/Dummy",
 		"val": 3,
 		"nest": map[string]any{
-			"^":   "github.com/ohler55/ojg/alt_test/Dummy",
+			"^":   "github.com/khaf/ojg/alt_test/Dummy",
 			"val": 2,
 		},
 	}, v)
@@ -131,8 +131,8 @@ func TestDecomposeEmbeddedStruct(t *testing.T) {
 
 	v = alt.Decompose(&b, &alt.Options{NestEmbed: true, OmitNil: true, CreateKey: "^", FullTypePath: true})
 	tt.Equal(t, map[string]any{
-		"^":     "github.com/ohler55/ojg/alt_test/Bummy",
-		"dummy": map[string]any{"^": "github.com/ohler55/ojg/alt_test/Dummy", "val": 3}, "num": 5}, v)
+		"^":     "github.com/khaf/ojg/alt_test/Bummy",
+		"dummy": map[string]any{"^": "github.com/khaf/ojg/alt_test/Dummy", "val": 3}, "num": 5}, v)
 
 	r := Rummy{Bummy: Bummy{Dummy: Dummy{Val: 3}, Num: 5}}
 	v = alt.Decompose(&r, &alt.Options{NestEmbed: true, OmitNil: true, CreateKey: "^"})
@@ -246,10 +246,10 @@ func TestAlterStruct(t *testing.T) {
 
 	v = alt.Alter(&d, &alt.Options{CreateKey: "^", FullTypePath: true, OmitNil: true})
 	tt.Equal(t, map[string]any{
-		"^":   "github.com/ohler55/ojg/alt_test/Dummy",
+		"^":   "github.com/khaf/ojg/alt_test/Dummy",
 		"val": 3,
 		"nest": map[string]any{
-			"^":   "github.com/ohler55/ojg/alt_test/Dummy",
+			"^":   "github.com/khaf/ojg/alt_test/Dummy",
 			"val": 2,
 		},
 	}, v)

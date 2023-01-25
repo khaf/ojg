@@ -6,9 +6,9 @@ import (
 	"log"
 	"testing"
 
-	"github.com/ohler55/ojg/oj"
-	"github.com/ohler55/ojg/pretty"
-	"github.com/ohler55/ojg/sen"
+	"github.com/khaf/ojg/oj"
+	"github.com/khaf/ojg/pretty"
+	"github.com/khaf/ojg/sen"
 )
 
 func prettyJSON(b *testing.B) {

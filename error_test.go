@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/tt"
 )
 
 func TestError(t *testing.T) {

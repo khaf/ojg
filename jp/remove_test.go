@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ohler55/ojg"
-	"github.com/ohler55/ojg/alt"
-	"github.com/ohler55/ojg/gen"
-	"github.com/ohler55/ojg/jp"
-	"github.com/ohler55/ojg/pretty"
-	"github.com/ohler55/ojg/sen"
-	"github.com/ohler55/ojg/tt"
+	"github.com/khaf/ojg"
+	"github.com/khaf/ojg/alt"
+	"github.com/khaf/ojg/gen"
+	"github.com/khaf/ojg/jp"
+	"github.com/khaf/ojg/pretty"
+	"github.com/khaf/ojg/sen"
+	"github.com/khaf/ojg/tt"
 )
 
 type RemObj struct {

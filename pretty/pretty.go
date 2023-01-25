@@ -5,7 +5,7 @@ package pretty
 import (
 	"io"
 
-	"github.com/ohler55/ojg"
+	"github.com/khaf/ojg"
 )
 
 // JSON encoded output. Arguments can be used to set the writer options. An

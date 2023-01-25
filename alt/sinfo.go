@@ -10,7 +10,7 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/ohler55/ojg"
+	"github.com/khaf/ojg"
 )
 
 const (

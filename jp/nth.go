@@ -5,7 +5,7 @@ package jp
 import (
 	"reflect"
 
-	"github.com/ohler55/ojg/gen"
+	"github.com/khaf/ojg/gen"
 )
 
 // Nth is a subscript operator that matches the n-th element in an array for a
