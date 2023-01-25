@@ -43,6 +43,13 @@ func (f Wildcard) remove(value any) (out any, changed bool) {
 				delete(tv, k)
 			}
 		}
+	case map[any]any:
+		if 0 < len(tv) {
+			changed = true
+			for k := range tv {
+				delete(tv, k)
+			}
+		}
 	case gen.Array:
 		if 0 < len(tv) {
 			changed = true
@@ -87,6 +94,18 @@ func (f Wildcard) removeOne(value any) (out any, changed bool) {
 			keys := make([]string, 0, len(tv))
 			for k := range tv {
 				keys = append(keys, k)
+			}
+			sort.Strings(keys)
+			delete(tv, keys[0])
+		}
+	case map[any]any:
+		if 0 < len(tv) {
+			changed = true
+			keys := make([]string, 0, len(tv))
+			for k := range tv {
+				if ks, ok := k.(string); ok {
+					keys = append(keys, ks)
+				}
 			}
 			sort.Strings(keys)
 			delete(tv, keys[0])

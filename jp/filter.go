@@ -79,6 +79,13 @@ func (f Filter) remove(value any) (out any, changed bool) {
 				changed = true
 			}
 		}
+	case map[any]any:
+		for k, v := range tv {
+			if f.Match(v) {
+				delete(tv, k)
+				changed = true
+			}
+		}
 	case gen.Array:
 		ns := make(gen.Array, 0, len(tv))
 		for _, v := range tv {
@@ -164,6 +171,23 @@ func (f Filter) removeOne(value any) (out any, changed bool) {
 			keys := make([]string, 0, len(tv))
 			for k := range tv {
 				keys = append(keys, k)
+			}
+			sort.Strings(keys)
+			for _, k := range keys {
+				if f.Match(tv[k]) {
+					delete(tv, k)
+					changed = true
+					break
+				}
+			}
+		}
+	case map[any]any:
+		if 0 < len(tv) {
+			keys := make([]string, 0, len(tv))
+			for ik := range tv {
+				if k, ok := ik.(string); ok {
+					keys = append(keys, k)
+				}
 			}
 			sort.Strings(keys)
 			for _, k := range keys {

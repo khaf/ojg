@@ -163,6 +163,13 @@ func (s *Script) Eval(stack any, data any) any {
 			da = append(da, v)
 		}
 		data = da
+	case map[any]any:
+		dlen = len(td)
+		da := make([]any, 0, dlen)
+		for _, v := range td {
+			da = append(da, v)
+		}
+		data = da
 	case gen.Object:
 		dlen = len(td)
 		da := make(gen.Array, 0, dlen)
@@ -206,6 +213,15 @@ func (s *Script) Eval(stack any, data any) any {
 				// included for that inclusion of a one level child lookup
 				// path.
 				if m, ok := v.(map[string]any); ok && len(x) == 2 {
+					if _, ok = x[0].(At); ok {
+						var c Child
+						if c, ok = x[1].(Child); ok {
+							ev = m[string(c)]
+							sstack[i] = ev
+							goto Normalize
+						}
+					}
+				} else if m, ok := v.(map[any]any); ok && len(x) == 2 {
 					if _, ok = x[0].(At); ok {
 						var c Child
 						if c, ok = x[1].(Child); ok {
@@ -498,6 +514,8 @@ func (s *Script) Eval(stack any, data any) any {
 					case []any:
 						sstack[i] = boo == (len(tl) == 0)
 					case map[string]any:
+						sstack[i] = boo == (len(tl) == 0)
+					case map[any]any:
 						sstack[i] = boo == (len(tl) == 0)
 					}
 				}

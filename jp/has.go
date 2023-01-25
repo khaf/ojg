@@ -46,6 +46,8 @@ func (x Expr) Has(data any) bool {
 			switch tv := prev.(type) {
 			case map[string]any:
 				v, has = tv[string(tf)]
+			case map[any]any:
+				v, has = tv[string(tf)]
 			case gen.Object:
 				v, has = tv[string(tf)]
 			default:
@@ -61,7 +63,7 @@ func (x Expr) Has(data any) bool {
 				case nil, bool, string, float64, float32,
 					int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 					gen.Bool, gen.Int, gen.Float, gen.String:
-				case map[string]any, []any, gen.Object, gen.Array:
+				case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 					stack = append(stack, v)
 				default:
 					if rt := reflect.TypeOf(v); rt != nil {
@@ -103,7 +105,7 @@ func (x Expr) Has(data any) bool {
 				switch v.(type) {
 				case nil, bool, string, float64, float32, gen.Bool, gen.Float, gen.String,
 					int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64, gen.Int:
-				case map[string]any, []any, gen.Object, gen.Array:
+				case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 					stack = append(stack, v)
 				default:
 					if rt := reflect.TypeOf(v); rt != nil {
@@ -127,7 +129,30 @@ func (x Expr) Has(data any) bool {
 						case nil, bool, string, float64, float32,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 							gen.Bool, gen.Int, gen.Float, gen.String:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
+							stack = append(stack, v)
+						default:
+							if rt := reflect.TypeOf(v); rt != nil {
+								switch rt.Kind() {
+								case reflect.Ptr, reflect.Slice, reflect.Struct, reflect.Array:
+									stack = append(stack, v)
+								}
+							}
+						}
+					}
+				}
+			case map[any]any:
+				if int(fi) == len(x)-1 { // last one
+					if 0 < len(tv) {
+						return true
+					}
+				} else {
+					for _, v = range tv {
+						switch v.(type) {
+						case nil, bool, string, float64, float32,
+							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
+							gen.Bool, gen.Int, gen.Float, gen.String:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						default:
 							if rt := reflect.TypeOf(v); rt != nil {
@@ -151,7 +176,7 @@ func (x Expr) Has(data any) bool {
 						case nil, bool, string, float64, float32,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 							gen.Bool, gen.Int, gen.Float, gen.String:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						default:
 							if rt := reflect.TypeOf(v); rt != nil {
@@ -171,7 +196,7 @@ func (x Expr) Has(data any) bool {
 				} else {
 					for _, v = range tv {
 						switch v.(type) {
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						}
 					}
@@ -185,7 +210,7 @@ func (x Expr) Has(data any) bool {
 					for i := len(tv) - 1; 0 <= i; i-- {
 						v = tv[i]
 						switch v.(type) {
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						}
 					}
@@ -199,7 +224,7 @@ func (x Expr) Has(data any) bool {
 					case nil, bool, string, float64, float32,
 						int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 						gen.Bool, gen.Int, gen.Float, gen.String:
-					case map[string]any, []any, gen.Object, gen.Array:
+					case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 						stack = append(stack, v)
 					default:
 						if rt := reflect.TypeOf(v); rt != nil {
@@ -230,7 +255,33 @@ func (x Expr) Has(data any) bool {
 						case nil, bool, string, float64, float32,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 							gen.Bool, gen.Int, gen.Float, gen.String:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
+							stack = append(stack, v)
+							stack = append(stack, fi|descentChildFlag)
+						default:
+							if rt := reflect.TypeOf(v); rt != nil {
+								switch rt.Kind() {
+								case reflect.Ptr, reflect.Slice, reflect.Struct, reflect.Array:
+									stack = append(stack, v)
+								}
+							}
+						}
+					}
+				case map[any]any:
+					// Put prev back and slide fi.
+					stack[len(stack)-1] = prev
+					stack = append(stack, di|descentFlag)
+					if int(fi) == len(x)-1 { // last one
+						if 0 < len(tv) {
+							return true
+						}
+					}
+					for _, v = range tv {
+						switch v.(type) {
+						case nil, bool, string, float64, float32,
+							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
+							gen.Bool, gen.Int, gen.Float, gen.String:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 							stack = append(stack, fi|descentChildFlag)
 						default:
@@ -257,7 +308,7 @@ func (x Expr) Has(data any) bool {
 						case nil, bool, string, float64, float32,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64,
 							gen.Bool, gen.Int, gen.Float, gen.String:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 							stack = append(stack, fi|descentChildFlag)
 						default:
@@ -280,7 +331,7 @@ func (x Expr) Has(data any) bool {
 					}
 					for _, v = range tv {
 						switch v.(type) {
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 							stack = append(stack, fi|descentChildFlag)
 						}
@@ -297,7 +348,7 @@ func (x Expr) Has(data any) bool {
 					for i := len(tv) - 1; 0 <= i; i-- {
 						v = tv[i]
 						switch v.(type) {
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 							stack = append(stack, fi|descentChildFlag)
 						}
@@ -324,6 +375,8 @@ func (x Expr) Has(data any) bool {
 					case string:
 						switch tv := prev.(type) {
 						case map[string]any:
+							v, has = tv[tu]
+						case map[any]any:
 							v, has = tv[tu]
 						case gen.Object:
 							v, has = tv[tu]
@@ -366,6 +419,8 @@ func (x Expr) Has(data any) bool {
 						switch tv := prev.(type) {
 						case map[string]any:
 							v, has = tv[tu]
+						case map[any]any:
+							v, has = tv[tu]
 						case gen.Object:
 							v, has = tv[tu]
 						default:
@@ -398,7 +453,7 @@ func (x Expr) Has(data any) bool {
 						switch v.(type) {
 						case nil, bool, string, float64, float32, gen.Bool, gen.Float, gen.String,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64, gen.Int:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						default:
 							if rt := reflect.TypeOf(v); rt != nil {
@@ -454,7 +509,7 @@ func (x Expr) Has(data any) bool {
 						switch v.(type) {
 						case nil, bool, string, float64, float32, gen.Bool, gen.Float, gen.String,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64, gen.Int:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						default:
 							if rt := reflect.TypeOf(v); rt != nil {
@@ -478,7 +533,7 @@ func (x Expr) Has(data any) bool {
 						switch v.(type) {
 						case nil, bool, string, float64, float32, gen.Bool, gen.Float, gen.String,
 							int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64, gen.Int:
-						case map[string]any, []any, gen.Object, gen.Array:
+						case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 							stack = append(stack, v)
 						default:
 							if rt := reflect.TypeOf(v); rt != nil {
@@ -542,7 +597,7 @@ func (x Expr) Has(data any) bool {
 					switch v.(type) {
 					case nil, bool, string, float64, float32, gen.Bool, gen.Float, gen.String,
 						int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64, gen.Int:
-					case map[string]any, []any, gen.Object, gen.Array:
+					case map[string]any, map[any]any, []any, gen.Object, gen.Array:
 						stack = append(stack, v)
 					default:
 						if rt := reflect.TypeOf(v); rt != nil {

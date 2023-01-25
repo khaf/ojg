@@ -30,6 +30,12 @@ func walk(path Expr, data any, cb func(path Expr, value any)) {
 		for k, v := range td {
 			walk(append(path, Child(k)), v, cb)
 		}
+	case map[any]any:
+		for k, v := range td {
+			if ks, ok := k.(string); ok {
+				walk(append(path, Child(ks)), v, cb)
+			}
+		}
 	case gen.Array:
 		for i, v := range td {
 			walk(append(path, Nth(i)), v, cb)

@@ -44,6 +44,10 @@ func (f Child) remove(value any) (out any, changed bool) {
 		if _, changed = tv[key]; changed {
 			delete(tv, key)
 		}
+	case map[any]any:
+		if _, changed = tv[key]; changed {
+			delete(tv, key)
+		}
 	case gen.Object:
 		if _, changed = tv[key]; changed {
 			delete(tv, key)

@@ -100,6 +100,23 @@ func (f Union) removeOne(value any) (out any, changed bool) {
 				}
 			}
 		}
+	case map[any]any:
+		if 0 < len(tv) {
+			keys := make([]string, 0, len(tv))
+			for k := range tv {
+				if ks, ok := k.(string); ok {
+					keys = append(keys, ks)
+				}
+			}
+			sort.Strings(keys)
+			for _, k := range keys {
+				if f.hasKey(k) {
+					delete(tv, k)
+					changed = true
+					break
+				}
+			}
+		}
 	case gen.Array:
 		ns := make(gen.Array, 0, len(tv))
 		for i, v := range tv {
@@ -195,6 +212,15 @@ func (f Union) remove(value any) (out any, changed bool) {
 			if f.hasKey(k) {
 				delete(tv, k)
 				changed = true
+			}
+		}
+	case map[any]any:
+		for k := range tv {
+			if ks, ok := k.(string); ok {
+				if f.hasKey(ks) {
+					delete(tv, k)
+					changed = true
+				}
 			}
 		}
 	case gen.Array:
